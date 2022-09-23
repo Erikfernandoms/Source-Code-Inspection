@@ -2,6 +2,7 @@ package br.calebe.ticketmachine.core;
 
 import br.calebe.ticketmachine.exception.PapelMoedaInvalidaException;
 import br.calebe.ticketmachine.exception.SaldoInsuficienteException;
+import br.calebe.ticketmachine.exception.TrocoException;
 import java.util.Iterator;
 
 /**
@@ -21,13 +22,13 @@ public class TicketMachine {
 
     public void inserir(int quantia) throws PapelMoedaInvalidaException {
         boolean achou = false;
-        for (int i = 0; i < papelMoeda.length && !achou; i++) {
-            if (papelMoeda[1] == quantia) {
+        for (int i = 0; i < papelMoeda.length; i++) {
+            if (papelMoeda[i] == quantia) {
                 achou = true;
             }
         }
         if (!achou) {
-            throw new PapelMoedaInvalidaException();
+            throw new PapelMoedaInvalidaException('Não encontrei esse papelmoeda');
         }
         this.saldo += quantia;
     }
@@ -36,17 +37,22 @@ public class TicketMachine {
         return saldo;
     }
 
-    public Iterator<Integer> getTroco() {
-        return null;
+    public Iterator<Integer> getTroco() throws TrocoException{
+        if (this.saldo > this.valor){
+            return this.saldo - this.valor
+        }
+        else{
+           throw new TrocoException('Você não possui troco')
+        }
     }
 
     public String imprimir() throws SaldoInsuficienteException {
-        if (saldo < valor) {
-            throw new SaldoInsuficienteException();
+        if (this.saldo < this.valor) {
+            throw new SaldoInsuficienteException('Saldo insuficiente');
         }
-        String result = "*****************\n";
-        result += "*** R$ " + saldo + ",00 ****\n";
-        result += "*****************\n";
+        String result = "*****************\n*** R$ " + this.valor + ",00 ****\n*****************\n";
         return result;
     }
 }
+
+inserir(5)
