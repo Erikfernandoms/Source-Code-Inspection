@@ -47,30 +47,6 @@ class Troco {
         else{
             throw new TrocoException('Valor inválido')
         }
-<<<<<<< HEAD
-        papeisMoeda[4] = new PapelMoeda(50, count);
-        count = 0;
-        while (valor % 20 != 0) {
-            count++;
-        }
-        papeisMoeda[3] = new PapelMoeda(20, count);
-        count = 0;
-        while (valor % 10 != 0) {
-            count++;
-        }
-        papeisMoeda[2] = new PapelMoeda(10, count);
-        count = 0;
-        while (valor % 5 != 0) {
-            count++;
-        }
-        papeisMoeda[1] = new PapelMoeda(5, count);
-        count = 0;
-        while (valor % 2 != 0) {
-            count++;
-        }
-        papeisMoeda[0] = new PapelMoeda(2, count);
-=======
->>>>>>> origin/erik-branch
     }
 
     public Iterator<PapelMoeda> getIterator() {

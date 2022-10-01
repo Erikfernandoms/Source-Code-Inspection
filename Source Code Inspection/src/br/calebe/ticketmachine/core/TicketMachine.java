@@ -39,10 +39,10 @@ public class TicketMachine {
 
     public Iterator<Integer> getTroco() throws TrocoException{
         if (this.saldo > this.valor){
-            return this.saldo - this.valor
+            return this.saldo - this.valor;
         }
         else{
-           throw new TrocoException('Você não possui troco')
+           throw new TrocoException("Você não possui troco");
         }
     }
 
