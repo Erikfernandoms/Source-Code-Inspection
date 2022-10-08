@@ -39,7 +39,7 @@ public class TicketMachineTest {
     public void testImprimir(){
         TicketMachine ticketMachine = new TicketMachine(0);
         ticketMachine.inserir(100);
-        assertEquals(ticketMachine.imprimir(), "*****************\n*** R$ 100,00 ****\n*****************\n")
+        assertEquals(ticketMachine.imprimir(), "R$ 100,00")
     }
 
 }

@@ -50,7 +50,7 @@ public class TicketMachine {
         if (this.saldo < this.valor) {
             throw new SaldoInsuficienteException('Saldo insuficiente');
         }
-        String result = "*****************\n*** R$ " + this.valor + ",00 ****\n*****************\n";
+        String result = this.valor;
         return result;
     }
 }
